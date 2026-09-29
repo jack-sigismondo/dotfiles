@@ -1,4 +1,6 @@
 " interchangeable with vim/neovim
+" run update-vimrc.sh whenever you make updates to share this same file with
+" legacy vim
 
 set nocompatible
 set nomodeline " for security
@@ -17,6 +19,11 @@ set autoread
 set autowrite " write file on :next, :make and more
 set autowriteall 
 set novisualbell
+
+
+" TAGS
+" on a buffer's write create ctags ; .xyz can be added on a whim
+au BufWritePost *.c,*.cpp,*.h,*.py,*.js silent! !ctags -R 2> /dev/null &
 
 
 " FORMATTING
