@@ -10,8 +10,19 @@ set nomodeline " for security
 if has ('nvim')
 	set termguicolors
 	set completeopt+=fuzzy
-	colorscheme desert " sorbet unokai zaibatsu habamax slate unokai 
+	" colorscheme desert " sorbet unokai zaibatsu habamax slate unokai 
 endif
+
+
+" VIMWIKI
+" installation:
+" git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
+" # to generate documentation i.e. ':h vimwiki'
+" vim -c 'helptags ~/.vim/pack/plugins/start/vimwiki/doc' -c quit
+let g:vimwiki_list = [{'path': '~/Notes/vimwiki/',
+			\ 'syntax': 'markdown', 'ext':'md',
+			\ 'diary_rel_path': 'entries/',}]
+let g:vimwiki_global_ext = 0
 
 
 " CLIENT
@@ -19,6 +30,7 @@ set autoread
 set autowrite " write file on :next, :make and more
 set autowriteall 
 set novisualbell
+colorscheme desert
 
 
 " TAGS

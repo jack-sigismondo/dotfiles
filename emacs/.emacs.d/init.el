@@ -228,7 +228,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(deeper-blue))
- '(package-selected-packages '(consult-org-roam evil hl-todo kkp magit)))
+ '(package-selected-packages nil))
   
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

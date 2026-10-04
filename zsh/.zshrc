@@ -16,9 +16,14 @@ compinit
 # CUSTOM
 
 unsetopt BEEP
+# .files are not hidden in tab completion
 setopt globdots
 
-# verbose ls
+# alt-delete doesn't delete entire path
+autoload -U select-word-style
+select-word-style bash
+
+# verbose ls w/out . & ..
 alias ls="ls --color=auto -lahF -I '.' -I '..'"
 
 # Note ; 'n' to list all notes, 'n [file]' to travel there
