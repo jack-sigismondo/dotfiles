@@ -6,14 +6,6 @@ set nocompatible
 set nomodeline " for security
 
 
-" NEOVIM
-if has ('nvim')
-	set termguicolors
-	set completeopt+=fuzzy
-	" colorscheme desert " sorbet unokai zaibatsu habamax slate unokai 
-endif
-
-
 " VIMWIKI
 " installation:
 " git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
@@ -49,11 +41,12 @@ set relativenumber
 set wrap
 set linebreak
 set textwidth=80
-set autocomplete
 set equalalways
 set tabstop=4
 set shiftwidth=4
 " set expandtab " changes tabs into spaces
+" set autocomplete " doesn't play nice with neovim
+
 
 " SEARCH
 set incsearch
@@ -69,7 +62,9 @@ set wildmenu
 
 " INPUT
 inoremap jk <Esc>
-inoremap kj <Esc>
+" inoremap kj <Esc>
+" inoremap kkj k<Esc>
+" inoremap kjk k<Esc>
 
 set mouse=nvi " middle click to paste
 

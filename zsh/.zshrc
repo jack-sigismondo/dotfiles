@@ -15,6 +15,8 @@ compinit
 
 # CUSTOM
 
+export PATH="/opt/homebrew/bin:$PATH"
+
 unsetopt BEEP
 # .files are not hidden in tab completion
 setopt globdots
