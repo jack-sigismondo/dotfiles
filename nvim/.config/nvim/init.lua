@@ -10,10 +10,12 @@ vim.pack.add({
 
 -- Misc
 vim.opt.termguicolors = true
-
+-- sheds the giant opaque block in a colorscheme
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", fg = "NONE" })
 
 -- LSP
 require("mason").setup()
+-- :MasonInstall "lang"
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("clangd")
 

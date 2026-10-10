@@ -16,6 +16,11 @@ let g:vimwiki_list = [{'path': '~/Notes/vimwiki/',
 			\ 'diary_rel_path': 'entries/',}]
 let g:vimwiki_global_ext = 0
 
+" autowrite a new html file on file write using pandoc
+au BufWritePost ~/Notes/vimwiki/*.md silent! :! pandoc -s --from=markdown+hard_line_breaks
+			\ '%' -o ~/Notes/html/'%:t:r'.html
+" and keep a local only copy too
+au BufWritePost ~/Notes/vimwiki/*.md silent! :! cp '%' ~/Notes/rough/vimwiki/'%:t'
 
 " CLIENT
 set autoread
@@ -23,7 +28,6 @@ set autowrite " write file on :next, :make and more
 set autowriteall 
 set novisualbell
 colorscheme desert
-
 
 " TAGS
 " on a buffer's write create ctags ; .xyz can be added on a whim
@@ -46,6 +50,7 @@ set tabstop=4
 set shiftwidth=4
 " set expandtab " changes tabs into spaces
 " set autocomplete " doesn't play nice with neovim
+set showmatch
 
 
 " SEARCH

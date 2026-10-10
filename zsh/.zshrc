@@ -17,6 +17,8 @@ compinit
 
 export PATH="/opt/homebrew/bin:$PATH"
 
+export EDITOR=nvim
+
 unsetopt BEEP
 # .files are not hidden in tab completion
 setopt globdots
@@ -29,6 +31,7 @@ select-word-style bash
 # alias ls="ls --color=auto -lahF -I '.' -I '..'"
 
 alias ls="ls --color=auto -lahF"
+
 
 # Note ; 'n' to list all notes, 'n [file]' to travel there
 function n() {
