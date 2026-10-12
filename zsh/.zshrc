@@ -15,6 +15,9 @@ compinit
 
 # CUSTOM
 
+# Display entire path in prompt
+export PS1="%~ $] "
+
 export PATH="/opt/homebrew/bin:$PATH"
 
 export EDITOR=nvim
@@ -29,9 +32,7 @@ select-word-style bash
 
 # verbose ls w/out . & .. # DOES NOT WORK ON MAC/POSSIBLY WIN
 # alias ls="ls --color=auto -lahF -I '.' -I '..'"
-
 alias ls="ls --color=auto -lahF"
-
 
 # Note ; 'n' to list all notes, 'n [file]' to travel there
 function n() {
