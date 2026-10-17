@@ -31,8 +31,8 @@ autoload -U select-word-style
 select-word-style bash
 
 # verbose ls w/out . & .. # DOES NOT WORK ON MAC/POSSIBLY WIN
-# alias ls="ls --color=auto -lahF -I '.' -I '..'"
-alias ls="ls --color=auto -lahF"
+alias ls="ls --color=auto -lahF -I '.' -I '..'"
+# alias ls="ls --color=auto -lahF"
 
 # Note ; 'n' to list all notes, 'n [file]' to travel there
 function n() {
