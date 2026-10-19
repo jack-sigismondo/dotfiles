@@ -30,9 +30,14 @@ setopt globdots
 autoload -U select-word-style
 select-word-style bash
 
-# verbose ls w/out . & .. # DOES NOT WORK ON MAC/POSSIBLY WIN
-alias ls="ls --color=auto -lahF -I '.' -I '..'"
-# alias ls="ls --color=auto -lahF"
+# Verbose ls # TODO Check whether mac or linxu is running and alias either
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux only
+  alias ls="ls  -laAhF --color=auto --group-directories-first"
+else
+  # Mac only
+  alias ls="ls --color=auto -lahF"
+fi
 
 # Note ; 'n' to list all notes, 'n [file]' to travel there
 function n() {

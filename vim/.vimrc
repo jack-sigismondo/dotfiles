@@ -5,7 +5,6 @@
 set nocompatible
 set nomodeline " for security
 
-
 " VIMWIKI
 " installation:
 " git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
@@ -16,7 +15,7 @@ let g:vimwiki_list = [{'path': '~/Notes/vimwiki/',
 			\ 'diary_rel_path': 'entries/',}]
 let g:vimwiki_global_ext = 0
 
-" autowrite a new html file on file write using pandoc
+" Autowrite a new html file on file write using pandoc
 au BufWritePost ~/Notes/vimwiki/*.md silent! :! pandoc -s --from=markdown+hard_line_breaks
 			\ '%' -o ~/Notes/html/'%:t:r'.html
 " and keep a local only copy too
@@ -24,26 +23,27 @@ au BufWritePost ~/Notes/vimwiki/*.md silent! :! cp '%' ~/Notes/rough/vimwiki/'%:
 
 " CLIENT
 set autoread
-set autowrite " write file on :next, :make and more
+set autowrite " Write file on :next, :make and more
 set autowriteall 
 set novisualbell
-colorscheme desert
+" colorscheme desert
 
 " TAGS
 " on a buffer's write create ctags ; .xyz can be added on a whim
-au BufWritePost *.c,*.cpp,*.h,*.py,*.js silent! !ctags -R 2> /dev/null &
+" au BufWritePost *.c,*.cpp,*.h,*.py,*.js silent! !ctags -R 2> /dev/null &
 
 
 " FORMATTING
-filetype plugin indent on " should be all inclusive
+filetype plugin indent on " Should be all inclusive
 syntax on
 set autoindent
 set smartindent
-set cursorline
+" set cursorline
 set number
+set numberwidth=3 " Consistent spacing
 set relativenumber 
 set wrap
-set linebreak
+" set linebreak
 set textwidth=80
 set equalalways
 set tabstop=4
@@ -59,6 +59,7 @@ set hlsearch
 set ignorecase
 set smartcase
 
+
 " FIND
 set path+=**
 set wildmenu
@@ -67,21 +68,36 @@ set wildmenu
 
 " INPUT
 inoremap jk <Esc>
-" inoremap kj <Esc>
-" inoremap kkj k<Esc>
-" inoremap kjk k<Esc>
 
-set mouse=nvi " middle click to paste
+set mouse=nvi " Middle click to paste
 
 let mapleader = " "
 nnoremap <Leader>b :buffer 
 nnoremap <Leader>f :find 
 
-nnoremap <Leader>v <C-w>v
-nnoremap <Leader>s <C-w>s
-nnoremap <Leader>q <C-w>q
+" Move windows with control
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
+" Move between buffers with shift
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
+
+" Move and focus searches in Vimwiki
+autocmd FileType markdown nnoremap <C-p> :lprev<CR>zz
+autocmd FileType markdown nnoremap <C-n> :lnext<CR>zz
+
+" Switch to vifm and open 
+" LAUNCH VIFM WITH EXTRA PATH TO CUSTOM VIM CONFIG and current path
+" TODO try :explore
+function! ViFM()
+	echo $PWD
+endfunction
+" nnoremap <Leader>e :call ViFM()<CR>
+"
+"
+
+" File browser
+nnoremap <Leader>e :Lexplore<CR>
