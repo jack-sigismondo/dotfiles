@@ -38,13 +38,13 @@ filetype plugin indent on " Should be all inclusive
 syntax on
 set autoindent
 set smartindent
-" set cursorline
+set cursorline
 set number
 set numberwidth=3 " Consistent spacing
 set relativenumber 
 set wrap
 " set linebreak
-set textwidth=80
+" set textwidth=80
 set equalalways
 set tabstop=4
 set shiftwidth=4
@@ -62,8 +62,8 @@ set smartcase
 
 " FIND
 set path+=**
+set wildmode=longest,list,full
 set wildmenu
-" set wildmode=list:longest,full
 
 
 " INPUT
@@ -89,15 +89,6 @@ nnoremap L :bn<CR>
 autocmd FileType markdown nnoremap <C-p> :lprev<CR>zz
 autocmd FileType markdown nnoremap <C-n> :lnext<CR>zz
 
-" Switch to vifm and open 
-" LAUNCH VIFM WITH EXTRA PATH TO CUSTOM VIM CONFIG and current path
-" TODO try :explore
-function! ViFM()
-	echo $PWD
-endfunction
-" nnoremap <Leader>e :call ViFM()<CR>
-"
-"
 
 " File browser
 nnoremap <Leader>e :Lexplore<CR>
